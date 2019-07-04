@@ -3,13 +3,13 @@ import { takeLatest, put, call } from "redux-saga/effects";
 import firebase from 'react-native-firebase';
 
 import { getDataSuccessful } from '../../redux/action'
+import { Api } from './Api'
 
 function* getDataSaga(param) {
   try {
-    let result = firebase.database().ref('Recipes/').once('value', function (snapshot) {
-      return snapshot.val();
-    });
+    let result = yield call(Api.getFirebaseData)
     yield put(getDataSuccessful(result));
+    
   } catch (error) {
     console.log(error)
   }

@@ -6,8 +6,8 @@ function Header(props) {
         <View style={styles.container}>
           <Image
             resizeMode='cover'
-            style={{ height: 40, width: 120 }}
-            source={{uri: 'https://dczii.github.io/images/logo.png' }}
+            // style={{ height: 40, width: 120 }}
+            source={require('../../assets/images/logo.png')}
           />
         </View>
     );

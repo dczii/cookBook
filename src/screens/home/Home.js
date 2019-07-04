@@ -1,42 +1,35 @@
 import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import firebase from 'react-native-firebase';
 
-import { getData, addNewData } from '../../redux/action'
+import RecipesList from '../../components/RecipesList'
+import { getData, addNewData, triggerModal } from '../../redux/action'
 
 function Home(props) {
 
-  function readUserData() {
-    firebase.database().ref('Recipes/').once('value', function (snapshot) {
-        console.log(snapshot.val());
-    });
-  }
-
   useEffect(() => {
-    // readUserData();
       props.getData();
-      // props.addNewData();
       return () => {}
   }, [])
 
-  console.log(props.recipesData)
+  let { recipesData } = props.globalReducer;
   return(
     <View style={{ flex: 1 }}>
-      <Text>React Native Template</Text>
+      <RecipesList dataList={recipesData} onEdit={props.triggerModal} />
     </View>
   );
 }
 
 const mapStateToProps = store => {
 	return {
-		recipesData: store.globalReducer,
+		globalReducer: store.globalReducer,
 	};
 };
 
 const mapActionToProps = {
   getData,
-  addNewData
+  addNewData,
+  triggerModal
 };
  
 export default connect(mapStateToProps,mapActionToProps)(Home);
