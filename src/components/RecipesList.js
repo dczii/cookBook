@@ -23,7 +23,10 @@ function RecipesList(props) {
                         <Text style={styles.desc}>{data.description}</Text>
                         
                         <TouchableOpacity style={styles.btn}
-                            onPress={() => props.onEdit(true)}>
+                            onPress={() => {
+                                props.onShowModal(true)
+                                props.editData({id: idx, data})
+                            }}>
                             <Image
                                 style={{width: 20, height: 20}}
                                 source={require('../../assets/images/edit-icon.png')}

@@ -4,12 +4,15 @@ import {
   ADD_DATA,
   ADD_DATA_SUCCESSFULL,
   TRIGGER_MODAL,
+  EDIT_DATA,
+  UPDATE_DATA_SUCCESSFULL
 } from '../types'
 
   const initialState = {
       isLoading: false,
       openModal: false,
       recipesData: [],
+      editData: {},
   }
 
 export default (state = initialState, action) => {
@@ -21,6 +24,10 @@ export default (state = initialState, action) => {
         return { ...state,  recipesData: action.payload }
       case TRIGGER_MODAL:
         return { ...state, openModal: action.payload }
+      case EDIT_DATA:
+        return { ...state, editData: action.payload }
+      case UPDATE_DATA_SUCCESSFULL:
+        return { ...state,  openModal: false, isLoading: false, editData: {} }
       default:
         return state;  
   }

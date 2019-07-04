@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
 import RecipesList from '../../components/RecipesList'
-import { getData, addNewData, triggerModal } from '../../redux/action'
+import { getData, addNewData, triggerModal, editData } from '../../redux/action'
 
 function Home(props) {
 
@@ -15,7 +15,11 @@ function Home(props) {
   let { recipesData } = props.globalReducer;
   return(
     <View style={{ flex: 1 }}>
-      <RecipesList dataList={recipesData} onEdit={props.triggerModal} />
+      <RecipesList
+        dataList={recipesData}
+        onShowModal={props.triggerModal}
+        editData={props.editData}
+        />
     </View>
   );
 }
@@ -29,7 +33,8 @@ const mapStateToProps = store => {
 const mapActionToProps = {
   getData,
   addNewData,
-  triggerModal
+  triggerModal,
+  editData
 };
  
 export default connect(mapStateToProps,mapActionToProps)(Home);

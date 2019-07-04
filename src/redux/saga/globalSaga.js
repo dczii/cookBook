@@ -1,8 +1,8 @@
-import { GET_DATA, ADD_DATA } from '../types';
+import { GET_DATA, ADD_DATA, UPDATE_DATA } from '../types';
 import { takeLatest, put, call } from "redux-saga/effects";
 import firebase from 'react-native-firebase';
 
-import { getDataSuccessful } from '../../redux/action'
+import { getData, getDataSuccessful,updateRecipeSuccessfull } from '../../redux/action'
 import { Api } from './Api'
 
 function* getDataSaga(param) {
@@ -10,6 +10,19 @@ function* getDataSaga(param) {
     let result = yield call(Api.getFirebaseData)
     yield put(getDataSuccessful(result));
     
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+function* updateRecipeSaga(param) {
+  try {
+    let result = yield call(Api.updateFirebaseData, param.payload)
+    
+    if(result) {
+      getData()
+      yield put(updateRecipeSuccessfull()); 
+    }
   } catch (error) {
     console.log(error)
   }
@@ -37,4 +50,5 @@ function addNewRecipe(param) {
 export function* watchGlobal() {
   yield takeLatest(GET_DATA, getDataSaga);
   yield takeLatest(ADD_DATA, addNewRecipe);
+  yield takeLatest(UPDATE_DATA, updateRecipeSaga);
 }

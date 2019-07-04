@@ -3,7 +3,10 @@ import {
   GET_DATA_SUCCESSFUL,
   ADD_DATA,
   ADD_DATA_SUCCESSFULL,
-  TRIGGER_MODAL
+  TRIGGER_MODAL,
+  EDIT_DATA,
+  UPDATE_DATA,
+  UPDATE_DATA_SUCCESSFULL
 } from '../types'
 
 export const getData = payload => {
@@ -33,9 +36,31 @@ export const addNewDataSuccessfull = payload => {
     payload,
   }
 }
+
+export const updateRecipe = payload => {
+  return {
+    type: UPDATE_DATA,
+    payload
+  }
+}
+
+export const updateRecipeSuccessfull = payload => {
+  return {
+    type: UPDATE_DATA_SUCCESSFULL,
+    payload,
+  }
+}
+
 export const triggerModal = payload => {
   return {
     type: TRIGGER_MODAL,
+    payload,
+  }
+}
+
+export const editData = payload => {
+  return {
+    type: EDIT_DATA,
     payload,
   }
 }
