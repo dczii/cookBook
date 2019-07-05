@@ -45,30 +45,9 @@ function RecipesList(props) {
                     </Button>}
                   renderRightHiddenRow={(data, secId, rowId, rowMap) =>
                     <Button full danger>
-                    <Text>Qewr</Text>
+                    <Text>DELETE</Text>
                     </Button>}
             />
-            {/* {_.map(dataList, (data, idx) => {
-                return(
-                    <ImageBackground key={idx} 
-                        style={styles.background}
-                        source={{ uri: data.imageUrl }}>
-                        <Text style={styles.title}>{data.title}</Text>
-                        <Text style={styles.desc}>{data.description}</Text>
-                        
-                        <TouchableOpacity style={styles.btn}
-                            onPress={() => {
-                                props.onShowModal({openModal: true, modalView: 'update' })
-                                props.editData({id: idx, data})
-                            }}>
-                            <Image
-                                style={{width: 20, height: 20}}
-                                source={require('../../assets/images/edit-icon.png')}
-                                />
-                        </TouchableOpacity>
-                    </ImageBackground>
-                );
-            })} */}
         </ScrollView>
     );
 }

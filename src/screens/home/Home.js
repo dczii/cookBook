@@ -32,8 +32,8 @@ function Home(props) {
             <Text style={{ color: '#FFF', fontSize: 16,fontWeight: 'bold' }}>
               ADD RECIPE
             </Text>
-      </TouchableOpacity>
       <SafeAreaView />
+      </TouchableOpacity>
     </View>
   );
 }
