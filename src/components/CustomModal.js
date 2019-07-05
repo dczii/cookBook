@@ -35,7 +35,14 @@ function CustomModal(props) {
   }, [props.globalReducer.editData]);
 
   onClickUpdate = () => {
-    let images = ['http://i.imgur.com/eTuCPxM.jpg', 'http://i.imgur.com/BiFkD83.jpg', 'http://i.imgur.com/lVdWrve.jpg'];
+    let images = [
+      'http://i.imgur.com/eTuCPxM.jpg',
+    'http://i.imgur.com/BiFkD83.jpg',
+    'http://i.imgur.com/lVdWrve.jpg',
+    'http://i.imgur.com/EygIdZU.jpg',
+    'http://i.imgur.com/lp6qUPo.jpg',
+    'http://i.imgur.com/LUiR7W8.jpg',
+  ];
     let imageUrl = ''
     if(modalView === 'update') {
       imageUrl = props.globalReducer.editData.data.imageUrl;
@@ -47,7 +54,7 @@ function CustomModal(props) {
         description: descValue,
         ingredients: ingredientsValue,
         instructions: instructionsValue,
-        imageUrl: modalView === 'update' ? imageUrl : images[_.random(0,2)]
+        imageUrl: modalView === 'update' ? imageUrl : images[_.random(0,5)]
       }
     }
 
