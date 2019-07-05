@@ -34,6 +34,7 @@ async function putFirebaseData(param) {
 
 async function updateFirebaseData(param) {
     try {
+        console.log(param.id);
         let response = await firebase.database().ref('Recipes/').child(param.id).set(param.data)
         .then(() => {
             return true;
@@ -48,8 +49,26 @@ async function updateFirebaseData(param) {
     }
 }
 
+async function deleteFirebaseData(param) {
+    try {
+        let response = await firebase.database().ref(`Recipes/${param}`).remove()
+        .then((data) => {
+            return true;
+        }).catch((error) => {
+            console.log(error);
+        });
+        console.log(response)
+
+        return response;
+      
+    } catch (error) {
+      console.log(error)
+    }
+}
+
 export const Api = {
     getFirebaseData,
     updateFirebaseData,
     putFirebaseData,
+    deleteFirebaseData
  };

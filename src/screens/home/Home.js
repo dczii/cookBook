@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 
 import RecipesList from '../../components/RecipesList'
-import { getData, addNewData, triggerModal, editData } from '../../redux/action'
+import { getData, addNewData, triggerModal, editData, deleteData } from '../../redux/action'
 
 function Home(props) {
 
@@ -20,6 +20,7 @@ function Home(props) {
         dataList={recipesData}
         onShowModal={props.triggerModal}
         editData={props.editData}
+        deleteData={props.deleteData}
         />
       <TouchableOpacity style={{
           backgroundColor: '#2196f3',
@@ -48,7 +49,8 @@ const mapActionToProps = {
   getData,
   addNewData,
   triggerModal,
-  editData
+  editData,
+  deleteData
 };
  
 export default connect(mapStateToProps,mapActionToProps)(Home);

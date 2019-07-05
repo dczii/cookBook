@@ -22,7 +22,6 @@ function RecipesList(props) {
                 rightOpenValue={-75}
                 dataSource={ds.cloneWithRows(dataList)}
                 renderRow={(data, idx) => {
-                    console.log(data)
                     return (
                     <ImageBackground 
                         style={styles.background}
@@ -44,7 +43,7 @@ function RecipesList(props) {
                             />
                     </Button>}
                   renderRightHiddenRow={(data, secId, rowId, rowMap) =>
-                    <Button full danger>
+                    <Button full danger onPress={() => props.deleteData(rowId)}>
                     <Text>DELETE</Text>
                     </Button>}
             />
