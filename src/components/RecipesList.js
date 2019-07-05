@@ -24,7 +24,7 @@ function RecipesList(props) {
                         
                         <TouchableOpacity style={styles.btn}
                             onPress={() => {
-                                props.onShowModal(true)
+                                props.onShowModal({openModal: true, modalView: 'update' })
                                 props.editData({id: idx, data})
                             }}>
                             <Image
@@ -42,7 +42,8 @@ function RecipesList(props) {
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        padding: 10
+        padding: 10,
+        marginBottom: 10,
     },
     container: {
       flex: 1,

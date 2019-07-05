@@ -27,6 +27,7 @@ const store = createStore(persistedRecuder, applyMiddleware(sagaMiddleware));
 const AppContainer = createAppContainer(Drawer);
 
 export default function App(props) {
+  console.disableYellowBox = true;
 
   var config = {
       databaseURL: 'https://cookbook-c4e1c.firebaseio.com/',

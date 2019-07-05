@@ -13,6 +13,25 @@ async function getFirebaseData(param) {
     }
 }
 
+async function putFirebaseData(param) {
+    try {
+        let response = await firebase.database().ref('Recipes/')
+            .push(param.payload.data)
+            .then((data)=>{
+                //success callback
+                return true
+            }).catch((error)=>{
+                //error callback
+                console.log('error ' , error)
+            });
+
+        return response;
+      
+    } catch (error) {
+      console.log(error)
+    }
+}
+
 async function updateFirebaseData(param) {
     try {
         let response = await firebase.database().ref('Recipes/').child(param.id).set(param.data)
@@ -32,5 +51,5 @@ async function updateFirebaseData(param) {
 export const Api = {
     getFirebaseData,
     updateFirebaseData,
-    // putFirebaseData,
+    putFirebaseData,
  };

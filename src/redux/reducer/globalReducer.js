@@ -13,6 +13,7 @@ import {
       openModal: false,
       recipesData: [],
       editData: {},
+      modalView: ''
   }
 
 export default (state = initialState, action) => {
@@ -22,8 +23,10 @@ export default (state = initialState, action) => {
         return { ...state }
       case GET_DATA_SUCCESSFUL:
         return { ...state,  recipesData: action.payload }
+      case ADD_DATA_SUCCESSFULL:
+        return { ...state, openModal: false, modalView: '' }
       case TRIGGER_MODAL:
-        return { ...state, openModal: action.payload }
+        return { ...state, ...action.payload }
       case EDIT_DATA:
         return { ...state, editData: action.payload }
       case UPDATE_DATA_SUCCESSFULL:
