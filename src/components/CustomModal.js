@@ -68,6 +68,10 @@ function CustomModal(props) {
   showUpdateView = () => {
     return (<View style={{ justifyContent:'center', alignItems: 'center' }}>
       <ScrollView style={styles.container}>
+        <Text style={{ fontWeight: 'bold', fontSize: 16, alignSelf: 'center' }}>
+          UPDATE
+        </Text>
+        
           <Text style={styles.label}>Title</Text>
 
           <TextInput 
@@ -127,6 +131,10 @@ function CustomModal(props) {
   showAddRecipeView = () => {
     return (<View style={{ justifyContent:'center', alignItems: 'center' }}>
       <ScrollView style={styles.container}>
+        <Text style={{ fontWeight: 'bold', fontSize: 16, alignSelf: 'center' }}>
+          ADD RECIPE
+        </Text>
+
           <Text style={styles.label}>Title</Text>
 
           <TextInput 

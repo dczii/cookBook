@@ -47,7 +47,10 @@ function RecipesList(props) {
                     </Button>}
                   renderRightHiddenRow={(data, secId, rowId, rowMap) =>
                     <Button full danger onPress={() => props.deleteData(rowId)}>
-                    <Text>DELETE</Text>
+                        <Image
+                            style={{width: 30, height: 30}}
+                            source={require('../../assets/images/trash-can.png')}
+                            />
                     </Button>}
             />
         </ScrollView>
