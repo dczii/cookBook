@@ -208,7 +208,9 @@ function CustomModal(props) {
     >
       <SafeAreaView />
       <TouchableOpacity onPress={() => props.triggerModal({ openModal: false })}
-        style={{backgrounColor: 'rgba(255,255,255,0.5)', flex: 1,height: '100%', width: '100%', position: 'absolute'}}> 
+        style={{backgrounColor: '#FFF', flex: 1,height: '100%', width: '100%', position: 'absolute'}}> 
+        <View style={{flex: 1, height: '100%', width: '100%',backgroundColor: '#000', opacity: 0.4 }}>
+        </View>
       </TouchableOpacity>
       
       {modalView === 'update' && showUpdateView()}
@@ -233,7 +235,7 @@ const mapActionToProps = {
 const styles = StyleSheet.create({
   container: {
     width: '80%',
-    backgroundColor: '#cfcfcf',
+    backgroundColor: '#FFF',
     borderRadius: 10,
     alignSelf: 'center',
     paddingVertical: 20,

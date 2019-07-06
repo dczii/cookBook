@@ -4,6 +4,7 @@ import {
     ScrollView,
     ImageBackground,
     TouchableOpacity,
+    View,
     Image,
     ListView,
     Text
@@ -26,9 +27,11 @@ function RecipesList(props) {
                     <ImageBackground 
                         style={styles.background}
                         source={{ uri: data.imageUrl }}>
-                        <ListItem style={{flex: 1, padding: 0, borderBottomWidth: 0, flexDirection: 'column', alignItems:'flex-start'}} key={idx} noIndent>
-                        <Text style={styles.title}>{data.title}</Text>
-                        <Text style={styles.desc}>{data.description}</Text>
+                        <View style={styles.bgStyle}>
+                        </View>
+                        <ListItem style={styles.listStyle} key={idx} noIndent>
+                            <Text style={styles.title}>{data.title}</Text>
+                            <Text style={styles.desc}>{data.description}</Text>
                         </ListItem>
                     </ImageBackground>)
                 }}
@@ -54,7 +57,7 @@ function RecipesList(props) {
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        padding: 10,
+        backgroundColor: 'rgba(255,255,255,1)',
     },
     title: {
         fontSize: 16,
@@ -63,7 +66,19 @@ const styles = StyleSheet.create({
     desc: {
         fontSize: 12,
     },
-    btn: {
+    bgStyle: {
+        flex: 1,
+        height: '100%',
+        width: '100%',
+        backgroundColor: '#FFF',
+        position: 'absolute',
+        opacity: 0.4
+    },
+    listStyle: {
+        flex: 1,
+        borderBottomWidth: 0,
+        flexDirection: 'column',
+        alignItems:'flex-start'
     }
 });
 
