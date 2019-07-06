@@ -204,9 +204,12 @@ function CustomModal(props) {
         animationType="slide"
         transparent={true}
         visible={openModal}
-        onRequestClose={() => triggerModal(false)}
+        onRequestClose={() => props.triggerModal({ openModal: false })}
     >
       <SafeAreaView />
+      <TouchableOpacity onPress={() => props.triggerModal({ openModal: false })}
+        style={{backgrounColor: 'rgba(255,255,255,0.5)', flex: 1,height: '100%', width: '100%', position: 'absolute'}}> 
+      </TouchableOpacity>
       
       {modalView === 'update' && showUpdateView()}
       {modalView === 'add' && showAddRecipeView()}
