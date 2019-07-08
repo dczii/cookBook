@@ -10,7 +10,6 @@ import firebase from 'react-native-firebase';
 
 import reducers from './src/redux/reducer'
 import rootSaga from './src/redux/saga/rootSaga'
-import Header from './src/components/Header';
 import CustomModal from './src/components/CustomModal'
 
 import Drawer from './src/navigator';
@@ -38,7 +37,6 @@ export default function App(props) {
   return (
       <Provider store ={store}>
         <SafeAreaView />
-        <Header />
         <AppContainer />
         <CustomModal />
       </Provider>

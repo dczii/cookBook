@@ -1,21 +1,25 @@
 import React from "react";
 import {
-  createStackNavigator
+  createDrawerNavigator
 } from "react-navigation";
 import { Image } from 'react-native';
-import Home from "./screens/home/Home";
+import Home from './screens/home/Home';
+import SideBar from './components/SideBar';
 
 import { Dimensions } from "react-native";
 const dimension = Dimensions.get("window");
 
-const Drawer = createStackNavigator(
+const Drawer = createDrawerNavigator(
     {
       Home: {
         screen: Home,
       }
     }, {
       initialRouteName: "Home",
-      headerMode: 'none'
+      drawerType: "slide",
+      headerMode: "screen",
+      drawerWidth: dimension.width / 1.5,
+      contentComponent: SideBar,
     }
   );
   

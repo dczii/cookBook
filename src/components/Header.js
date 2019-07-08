@@ -1,9 +1,24 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image } from 'react-native';
+import {StyleSheet, TouchableOpacity, View, Image } from 'react-native';
 
 function Header(props) {
+    console.log(props.navigation)
+
+    _onPressMenu = (nav) => {
+      nav.toggleDrawer();
+    }
+
     return(
         <View style={styles.container}>
+          <TouchableOpacity 
+            onPress={() => _onPressMenu(props.nav)}
+            style={{ position: 'absolute', left: 10 }}>
+            <Image
+              resizeMode='cover'
+              style={{ height: 30, width: 30 }}
+              source={require('../../assets/images/side-bar.png')}
+            />
+          </TouchableOpacity>
           <Image
             resizeMode='cover'
             // style={{ height: 40, width: 120 }}
@@ -18,6 +33,7 @@ const styles = StyleSheet.create({
       paddingVertical: 5,
       width: '100%',
       alignItems: 'center',
+      justifyContent: 'center',
       borderBottomWidth: 1,
       borderBottomColor: 'rgba(0,0,0,0.2)'
     },

@@ -3,7 +3,9 @@ import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 
 import RecipesList from '../../components/RecipesList'
+import Header from '../../components/Header'
 import { getData, addNewData, triggerModal, editData, deleteData } from '../../redux/action'
+
 
 function Home(props) {
 
@@ -13,9 +15,10 @@ function Home(props) {
   }, [])
 
   let { recipesData } = props.globalReducer;
-
+  console.log('props---',props)
   return(
     <View style={{ flex: 1 }}>
+      <Header nav={props.navigation}/>
       <RecipesList
         dataList={recipesData}
         onShowModal={props.triggerModal}
