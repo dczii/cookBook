@@ -15,7 +15,6 @@ function Home(props) {
   }, [])
 
   let { recipesData } = props.globalReducer;
-  console.log('props---',props)
   return(
     <View style={{ flex: 1 }}>
       <Header nav={props.navigation}/>

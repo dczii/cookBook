@@ -12,3 +12,6 @@ export const TRIGGER_MODAL = 'TRIGGER_MODAL'
 export const EDIT_DATA = 'EDIT_DATA'
 
 export const DELETE_DATA = 'DELETE_DATA'
+
+export const LOGIN = 'LOGIN'
+export const LOGIN_SUCCESFULL = 'LOGIN_SUCCESFULL'

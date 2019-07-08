@@ -19,7 +19,7 @@ const Drawer = createDrawerNavigator(
         screen: LoginContainer
       }
     }, {
-      initialRouteName: "Login",
+      initialRouteName: "Home",
       drawerType: "slide",
       headerMode: "screen",
       drawerWidth: dimension.width / 1.5,

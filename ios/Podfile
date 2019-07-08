@@ -8,5 +8,6 @@ target 'cookBook' do
   # Pods for cookBook
   pod 'Firebase/Core'
   pod 'Firebase/Database', '~> 6.3.0'
+  pod 'Firebase/Auth', '~> 6.3.0'
 
 end

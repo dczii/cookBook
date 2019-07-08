@@ -5,7 +5,9 @@ import {
   ADD_DATA_SUCCESSFULL,
   TRIGGER_MODAL,
   EDIT_DATA,
-  UPDATE_DATA_SUCCESSFULL
+  UPDATE_DATA_SUCCESSFULL,
+  LOGIN,
+  LOGIN_SUCCESFULL
 } from '../types'
 
   const initialState = {
@@ -13,7 +15,8 @@ import {
       openModal: false,
       recipesData: [],
       editData: {},
-      modalView: ''
+      modalView: '',
+      user: {}
   }
 
 export default (state = initialState, action) => {
@@ -27,6 +30,10 @@ export default (state = initialState, action) => {
         return { ...state, openModal: false, modalView: '' }
       case TRIGGER_MODAL:
         return { ...state, ...action.payload }
+      case LOGIN:
+        return { ...state, isLoading: true }
+      case LOGIN_SUCCESFULL:
+        return { ...state, isLoading: false, user: action.payload }
       case EDIT_DATA:
         return { ...state, editData: action.payload }
       case UPDATE_DATA_SUCCESSFULL:

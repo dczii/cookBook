@@ -28,11 +28,11 @@ const AppContainer = createAppContainer(Drawer);
 export default function App(props) {
   console.disableYellowBox = true;
 
-  var config = {
-      databaseURL: 'https://cookbook-c4e1c.firebaseio.com/',
-      projectId: 'cookbook-c4e1c'
-  };
-  firebase.initializeApp(config);
+  // var config = {
+  //     databaseURL: 'https://cookbook-c4e1c.firebaseio.com/',
+  //     projectId: 'cookbook-c4e1c'
+  // };
+  // firebase.initializeApp(config);
 
   return (
       <Provider store ={store}>

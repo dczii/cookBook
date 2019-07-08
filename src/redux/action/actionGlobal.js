@@ -7,7 +7,9 @@ import {
   EDIT_DATA,
   UPDATE_DATA,
   UPDATE_DATA_SUCCESSFULL,
-  DELETE_DATA
+  DELETE_DATA,
+  LOGIN,
+  LOGIN_SUCCESFULL
 } from '../types'
 
 export const getData = payload => {
@@ -69,6 +71,20 @@ export const editData = payload => {
 export const deleteData = payload => {
   return {
     type: DELETE_DATA,
+    payload,
+  }
+}
+
+export const loginAction = payload => {
+  return {
+    type: LOGIN,
+    payload,
+  }
+}
+
+export const loginSuccesfullAction = payload => {
+  return {
+    type: LOGIN_SUCCESFULL,
     payload,
   }
 }

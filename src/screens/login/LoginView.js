@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Content, Input, Item, Label } from 'native-base';
 
 function LoginView(props) {
-    const [username, handleUsername] = useState('');
+    const [email, handleEmail] = useState('');
     const [password, handlePassword] = useState('');
     return(
     <ImageBackground 
@@ -16,18 +16,18 @@ function LoginView(props) {
                     justifyContent: 'flex-end',
                     alignItems: 'flex-end',
                 }}>
-                <Item floatingLabel style={{ marginTop: 5, marginBottom: 20 }}>
+                <Item floatingLabel style={{ marginTop: 5, marginBottom: 10 }}>
                     <Label style={{ color: '#FFF', fontWeight: 'bold'}}>
-                        Username
+                        Email
                     </Label>
                     <Input style={{ color: '#FFF' }}
-                        value={username}
-                        onChangeText={e => handleUsername(e)}
+                        value={email}
+                        onChangeText={e => handleEmail(e)}
                     />
                 </Item>
-                <Item floatingLabel style={{ marginTop: 5, marginBottom: 20 }}>
+                <Item floatingLabel style={{ marginTop: 5, marginBottom: 10 }}>
                     <Label style={{ color: '#FFF', fontWeight: 'bold'}}>
-                        password
+                        Password
                     </Label>
                     <Input style={{ color: '#FFF' }} secureTextEntry
                         value={password}
@@ -41,6 +41,11 @@ function LoginView(props) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginTop: 20
+                }} onPress={() =>{
+                    triggerLogin({
+                        email: email,
+                        password: password
+                    })
                 }}>
                     <Text style={{ color: '#FFF', fontSize: 14 }}>
                     LOGIN

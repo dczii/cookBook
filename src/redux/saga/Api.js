@@ -66,9 +66,24 @@ async function deleteFirebaseData(param) {
     }
 }
 
+async function loginFirebase(param){
+    try {
+        let response = await firebase
+        .auth()
+        .signInWithEmailAndPassword(param.email, param.password)
+        .then((data) => data)
+        .catch(error => console.log(error))
+
+        return response
+    }  catch (error) {
+        console.log(error)
+      }
+}
+
 export const Api = {
     getFirebaseData,
     updateFirebaseData,
     putFirebaseData,
-    deleteFirebaseData
+    deleteFirebaseData,
+    loginFirebase
  };

@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View, Image } from 'react-native';
 
 function Header(props) {
-    console.log(props.navigation)
 
     _onPressMenu = (nav) => {
       nav.toggleDrawer();
