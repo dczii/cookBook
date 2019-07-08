@@ -48,7 +48,8 @@ function SideBar(props) {
                     </Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{width:'100%'}} underlayColor={'#E1EFFA'} activeOpacity={1}>
+            <TouchableOpacity style={{width:'100%'}} underlayColor={'#E1EFFA'} activeOpacity={1}
+                onPress={() => _navigateToScreen('Login')}>
                 <View style={{flexDirection: 'row'}}>
                     <Text style={{fontSize: 18,  paddingTop: 21.5, paddingBottom: 21.5, color: '#000'}}>
                         LOGIN
