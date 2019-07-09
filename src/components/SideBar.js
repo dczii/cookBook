@@ -30,9 +30,7 @@ function SideBar(props) {
             <SafeAreaView/>
             <TouchableOpacity 
                 style={{
-                    position: 'absolute',
-                    right: 10,
-                    top: 10
+                    alignItems: 'flex-end',
                 }}
                 onPress={() => _closeDrawer()}>
                 <Image
@@ -41,18 +39,18 @@ function SideBar(props) {
                 source={require('../../assets/images/close.png')}
                 />
             </TouchableOpacity>
-            <TouchableOpacity style={{width:'100%'}} underlayColor={'#E1EFFA'} activeOpacity={1}>
+            <TouchableOpacity style={{ paddingLeft: 20, width:'100%', backgroundColor: '#FAFAFA' }} underlayColor={'#E1EFFA'} activeOpacity={1}>
                 <View style={{flexDirection: 'row'}}>
                     <Text style={{fontSize: 18,  paddingTop: 21.5, paddingBottom: 21.5, color: '#000'}}>
                         Home
                     </Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{width:'100%'}} underlayColor={'#E1EFFA'} activeOpacity={1}
+            <TouchableOpacity style={{ paddingLeft: 20, width:'100%', backgroundColor: '#FAFAFA' }} underlayColor={'#E1EFFA'} activeOpacity={1}
                 onPress={() => _navigateToScreen('Login')}>
                 <View style={{flexDirection: 'row'}}>
                     <Text style={{fontSize: 18,  paddingTop: 21.5, paddingBottom: 21.5, color: '#000'}}>
-                        LOGIN
+                        Login
                     </Text>
                 </View>
             </TouchableOpacity>
