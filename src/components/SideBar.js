@@ -31,6 +31,7 @@ function SideBar(props) {
             <TouchableOpacity 
                 style={{
                     alignItems: 'flex-end',
+                    paddingRight: 20
                 }}
                 onPress={() => _closeDrawer()}>
                 <Image
