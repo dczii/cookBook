@@ -7,7 +7,9 @@ import {
   EDIT_DATA,
   UPDATE_DATA_SUCCESSFULL,
   LOGIN,
-  LOGIN_SUCCESFULL
+  REGISTER,
+  LOGIN_SUCCESFULL,
+  UPDATE_DATA
 } from '../types'
 
   const initialState = {
@@ -23,14 +25,20 @@ export default (state = initialState, action) => {
   switch(action.type) {
 
       case GET_DATA:
-        return { ...state }
+        return { ...state, isLoading: true }
       case GET_DATA_SUCCESSFUL:
-        return { ...state,  recipesData: action.payload }
+        return { ...state, isLoading: false, recipesData: action.payload }
       case ADD_DATA_SUCCESSFULL:
-        return { ...state, openModal: false, modalView: '' }
+        return { ...state, openModal: false, modalView: '', isLoading: false }
       case TRIGGER_MODAL:
         return { ...state, ...action.payload }
       case LOGIN:
+        return { ...state, isLoading: true }
+      case REGISTER:
+        return { ...state, isLoading: true }
+      case ADD_DATA:
+        return { ...state, isLoading: true }
+      case UPDATE_DATA:
         return { ...state, isLoading: true }
       case LOGIN_SUCCESFULL:
         return { ...state, isLoading: false, user: action.payload }

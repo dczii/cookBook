@@ -11,7 +11,6 @@ function Home(props) {
 
   useEffect(() => {
       props.getData();
-      return () => {}
   }, [])
 
   let { recipesData } = props.globalReducer;

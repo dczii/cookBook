@@ -1,16 +1,15 @@
 import React from 'react';
 import { AsyncStorage, View, Text, SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react'
 import { createStore, applyMiddleware } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistReducer } from 'redux-persist';
 import { createAppContainer } from 'react-navigation';
 import createSagaMiddleware from 'redux-saga';
-import firebase from 'react-native-firebase';
 
 import reducers from './src/redux/reducer'
 import rootSaga from './src/redux/saga/rootSaga'
 import CustomModal from './src/components/CustomModal'
+import Loading from './src/components/Loading'
 
 import Drawer from './src/navigator';
 
@@ -35,7 +34,8 @@ export default function App(props) {
   // firebase.initializeApp(config);
 
   return (
-      <Provider store ={store}>
+      <Provider store={store}>
+        <Loading />
         <SafeAreaView />
         <AppContainer />
         <CustomModal />
