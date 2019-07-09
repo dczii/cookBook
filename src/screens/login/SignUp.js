@@ -1,14 +1,70 @@
-import React, { useEffect } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { ImageBackground , SafeAreaView, TouchableOpacity, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { Tab, Tabs } from 'native-base';
+import { Content, Input, Item, Label } from 'native-base';
 
-function SignUp(props) {
-  return(
-    <View style={{ flex: 1 }}>
-          <Text>SignUp</Text>
-    </View>
-  );
+function LoginView(props) {
+    const [email, handleEmail] = useState('');
+    const [password, handlePassword] = useState('');
+    return(
+    <ImageBackground 
+        style={{ flex: 1 }}
+        source={require('../../../assets/images/background-2.jpeg')}>
+            <Content style={{ paddingHorizontal: 20, flex: 1, marginBottom: '15%' }}
+                contentContainerStyle={{
+                    flex: 1,
+                    alignItems: 'center',
+                    padding: 20
+                }}>
+                <Item floatingLabel style={{ marginTop: 5, marginBottom: 10 }}>
+                    <Label style={{ color: '#FFF', fontWeight: 'bold'}}>
+                        Email
+                    </Label>
+                    <Input style={{ color: '#FFF' }}
+                        value={email}
+                        onChangeText={e => handleEmail(e)}
+                    />
+                </Item>
+                <Item floatingLabel style={{ marginTop: 5, marginBottom: 10 }}>
+                    <Label style={{ color: '#FFF', fontWeight: 'bold'}}>
+                        Password
+                    </Label>
+                    <Input style={{ color: '#FFF' }} secureTextEntry
+                        value={password}
+                        onChangeText={e => handlePassword(e)}
+                    />
+                </Item>
+                <TouchableOpacity style={{
+                    backgroundColor: '#2196f3',
+                    padding: 10,
+                    width: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginTop: 20
+                }} onPress={() =>{
+                    triggerRegister({
+                        email: email,
+                        password: password
+                    })
+                }}>
+                    <Text style={{ color: '#FFF', fontSize: 14 }}>
+                    REGISTER
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{
+                    padding: 10,
+                    width: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }} onPress={() => props._goBack()}>
+                    <Text style={{ color: '#FFF', fontSize: 14 }}>
+                        Back to Home
+                    </Text>
+                </TouchableOpacity>
+        </Content>  
+        <SafeAreaView />
+    </ImageBackground>
+    );
 }
 
 const mapStateToProps = store => {
@@ -19,4 +75,4 @@ const mapStateToProps = store => {
 const mapActionToProps = {
 };
  
-export default connect(mapStateToProps,mapActionToProps)(SignUp);
+export default connect(mapStateToProps,mapActionToProps)(LoginView);

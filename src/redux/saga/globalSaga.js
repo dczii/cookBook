@@ -1,4 +1,4 @@
-import { GET_DATA, ADD_DATA, UPDATE_DATA, DELETE_DATA, LOGIN } from '../types';
+import { GET_DATA, ADD_DATA, UPDATE_DATA, DELETE_DATA, LOGIN, REGISTER } from '../types';
 import { takeLatest, put, call } from "redux-saga/effects";
 import { NavigationActions } from 'react-navigation';
 
@@ -70,10 +70,23 @@ function* loginSaga(param) {
   }
 }
 
+function* registerSaga(param) {
+  try {
+    let result = yield call(Api.registerFirebase, param.payload)
+    if(result) {
+      yield put(loginSuccesfullAction(result));
+      yield put(NavigationActions.navigate({ routeName: 'Home' }))
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export function* watchGlobal() {
   yield takeLatest(GET_DATA, getRecipeList);
   yield takeLatest(ADD_DATA, addNewRecipe);
   yield takeLatest(UPDATE_DATA, updateRecipe);
   yield takeLatest(DELETE_DATA, deleteRecipe);
   yield takeLatest(LOGIN, loginSaga);
+  yield takeLatest(REGISTER, registerSaga);
 }

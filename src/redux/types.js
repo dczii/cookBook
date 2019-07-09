@@ -15,3 +15,6 @@ export const DELETE_DATA = 'DELETE_DATA'
 
 export const LOGIN = 'LOGIN'
 export const LOGIN_SUCCESFULL = 'LOGIN_SUCCESFULL'
+
+export const REGISTER = 'REGISTER'
+export const REGISTER_SUCCESFULL = 'REGISTER_SUCCESFULL'

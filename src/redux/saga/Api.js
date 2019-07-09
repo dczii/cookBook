@@ -80,10 +80,25 @@ async function loginFirebase(param){
       }
 }
 
+async function registerFirebase(param){
+    try {
+        let response = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(param.email, param.password)
+        .then((data) => data)
+        .catch(error => console.log(error))
+
+        return response
+    }  catch (error) {
+        console.log(error)
+      }
+}
+
 export const Api = {
     getFirebaseData,
     updateFirebaseData,
     putFirebaseData,
     deleteFirebaseData,
-    loginFirebase
+    loginFirebase,
+    registerFirebase
  };

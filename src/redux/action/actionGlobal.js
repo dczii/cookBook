@@ -9,7 +9,9 @@ import {
   UPDATE_DATA_SUCCESSFULL,
   DELETE_DATA,
   LOGIN,
-  LOGIN_SUCCESFULL
+  LOGIN_SUCCESFULL,
+  REGISTER,
+  REGISTER_SUCCESFULL
 } from '../types'
 
 export const getData = payload => {
@@ -88,3 +90,18 @@ export const loginSuccesfullAction = payload => {
     payload,
   }
 }
+
+export const registerAction = payload => {
+  return {
+    type: REGISTER,
+    payload,
+  }
+}
+
+export const registerSuccessfullAction = payload => {
+  return {
+    type: REGISTER_SUCCESFULL,
+    payload,
+  }
+}
+

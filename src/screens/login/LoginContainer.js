@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 import LoginView from './LoginView'
 import SignUp from './SignUp'
-import { loginAction } from '../../redux/action'
+import { loginAction, registerAction } from '../../redux/action'
 
 function LoginContainer(props) {
   let { user } = props.globalReducer
@@ -31,14 +31,18 @@ function LoginContainer(props) {
     props.loginAction(params)
   }
   
+  triggerRegister = (params) => {
+    props.registerAction(params)
+  }
+  
   return(
     <View style={{ flex: 1 }}>
       <Tabs>
         <Tab heading='Login'>
-          <LoginView nav={props.navigation} _goBack={_goBack} triggerLogin={triggerLogin}/>
+          <LoginView _goBack={_goBack} triggerLogin={triggerLogin}/>
         </Tab>
         <Tab heading='Signup'>
-          <SignUp />
+          <SignUp _goBack={_goBack} triggerRegister={triggerRegister}/>
         </Tab>
       </Tabs>
     </View>
@@ -52,7 +56,8 @@ const mapStateToProps = store => {
 };
 
 const mapActionToProps = {
-  loginAction
+  loginAction,
+  registerAction
 };
  
 export default connect(mapStateToProps,mapActionToProps)(LoginContainer);
