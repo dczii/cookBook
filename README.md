@@ -22,6 +22,7 @@ Architected by [Danilo Zabala II](http://github.com/dczii)
 # Installation
 ```
 yarn install
+react-native run-ios
 ```
 
 # Screenshots
